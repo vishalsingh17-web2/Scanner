@@ -27,7 +27,11 @@ class _SignInState extends State<SignIn> {
             _forgotpassword
                 ? Container(
                     margin: const EdgeInsets.only(left: 20),
-                    child: const Text("Login via email"),
+                    child: const Text(
+                      "*Login via email",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    ),
                   )
                 : Container(
                     margin: const EdgeInsets.only(left: 20),
@@ -166,47 +170,46 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                   ),
-           _forgotpassword? Container(
-              margin: const EdgeInsets.only(top: 9),
-              alignment: Alignment.center,
-              child: const Text(
-                "Sign In with",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
-                ),
-              ),
-            ):Container(),
-           _forgotpassword? Container(
-              margin: const EdgeInsets.only(top: 18),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(right: 10),
-                    child: Image.asset(
-                      "assets/images/google.png",
-                      height: 35,
+            _forgotpassword
+                ? Container(
+                    alignment: Alignment.center,
+                    child: const Text(
+                      "OR",
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(right: 10),
-                    child: Image.asset(
-                      "assets/images/facebook.png",
-                      height: 35,
+                  )
+                : Container(),
+            _forgotpassword
+                ? Container(
+                    alignment: Alignment.center,
+                    child: ElevatedButton(
+                      onPressed: () => AuthenticationHelper()
+                          .signInwithGoogle(context: context),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.grey,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const Text("Login with Google"),
+                          const SizedBox(width: 10),
+                          Image.asset(
+                            "assets/images/google.png",
+                            height: 20,
+                            width: 20,
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(right: 10),
-                    child: Image.asset(
-                      "assets/images/twitter.png",
-                      height: 35,
-                    ),
-                  ),
-                ],
-              ),
-            ):Container(),
+                  )
+                : Container(),
           ],
         ),
       ),
