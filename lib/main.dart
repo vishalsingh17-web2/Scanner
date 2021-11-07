@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:scanner/create_qr.dart';
 import 'package:scanner/homepage.dart';
 import 'package:scanner/qrpage.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
       title: 'Scanner',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: GoogleFonts.poppins().fontFamily,
       ),
       home: check()
           ? HomePage(pages: [const CreateQR(), QRViewExample()])

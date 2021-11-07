@@ -93,7 +93,7 @@ class _SignInState extends State<SignIn> {
                 : Container(),
             _forgotpassword
                 ? Container(
-                    margin: const EdgeInsets.only(top: 18),
+                    margin: const EdgeInsets.only(top: 9),
                     alignment: Alignment.center,
                     child: ElevatedButton(
                       onPressed: () {
@@ -144,7 +144,7 @@ class _SignInState extends State<SignIn> {
             _forgotpassword
                 ? Container()
                 : Container(
-                    margin: const EdgeInsets.only(top: 18),
+                    margin: const EdgeInsets.only(top: 9),
                     alignment: Alignment.center,
                     child: ElevatedButton(
                       onPressed: () {
@@ -166,6 +166,47 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                   ),
+           _forgotpassword? Container(
+              margin: const EdgeInsets.only(top: 9),
+              alignment: Alignment.center,
+              child: const Text(
+                "Sign In with",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 20,
+                ),
+              ),
+            ):Container(),
+           _forgotpassword? Container(
+              margin: const EdgeInsets.only(top: 18),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Image.asset(
+                      "assets/images/google.png",
+                      height: 35,
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Image.asset(
+                      "assets/images/facebook.png",
+                      height: 35,
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Image.asset(
+                      "assets/images/twitter.png",
+                      height: 35,
+                    ),
+                  ),
+                ],
+              ),
+            ):Container(),
           ],
         ),
       ),
